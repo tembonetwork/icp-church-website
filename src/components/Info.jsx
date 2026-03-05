@@ -36,7 +36,7 @@ const Info = () => {
                 </div>
                 <div>
                   <h4>Service Hours</h4>
-                  <p>Sunday 11:00 AM – 3:00 PM</p>
+                  <p>Sunday 1:00 PM – 3:00 PM</p>
                   <span className="temporary-tag">Temporary Schedule</span>
                 </div>
               </div>

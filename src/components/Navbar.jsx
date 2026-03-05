@@ -17,7 +17,7 @@ const Navbar = () => {
     <nav className={`fixed-nav ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <a href="#" className="nav-logo">
-          <img src="/logo.jpg" alt="ICP Logo" className="nav-logo-img" />
+          <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="ICP Logo" className="nav-logo-img" />
           <span className="logo-text">ICP</span>
         </a>
 

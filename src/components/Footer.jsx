@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
-              <img src="/logo.jpg" alt="ICP Logo" />
+              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="ICP Logo" />
               <span>ICP</span>
             </div>
             <p className="footer-desc">

@@ -22,7 +22,7 @@ const Hero = () => {
             className="hero-logo-wrapper"
             style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
           >
-            <img src="/logo.jpg" alt="ICP Logo" className="hero-logo" />
+            <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="ICP Logo" className="hero-logo" />
             <div className="hero-logo-glow"></div>
           </div>
           <div className="non-denominational-tag">Non-denominational Church</div>
