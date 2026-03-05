@@ -18,13 +18,14 @@ const Hero = () => {
     <section className="hero">
       <div className="container hero-container">
         <div className="hero-content">
-          <div
+          <a
+            href={import.meta.env.BASE_URL}
             className="hero-logo-wrapper"
-            style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
+            style={{ transform: `translate(${offset.x}px, ${offset.y}px)`, cursor: 'pointer', display: 'flex' }}
           >
             <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="ICP Logo" className="hero-logo" />
             <div className="hero-logo-glow"></div>
-          </div>
+          </a>
           <div className="non-denominational-tag">Non-denominational Church</div>
           <h1>International Church of Pentecost</h1>
           <p className="subtitle">Welcome to our community. Experience the unconditional love of God.</p>
