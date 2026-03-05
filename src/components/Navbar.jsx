@@ -16,9 +16,13 @@ const Navbar = () => {
   return (
     <nav className={`fixed-nav ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <a href="#" className="nav-logo">
-          <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="ICP Logo" className="nav-logo-img" />
-          <span className="logo-text">ICP</span>
+        <a
+          href={import.meta.env.BASE_URL}
+          className="hero-logo-wrapper"
+          style={{ cursor: 'pointer', display: 'flex' }}
+        >
+          <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="ICP Logo" className="hero-logo" />
+          <div className="hero-logo-glow"></div>
         </a>
 
         <div className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`}>
