@@ -43,19 +43,24 @@ const Info = () => {
             </div>
           </div>
 
-          <div className="info-map-placeholder">
-            <div className="map-card glass">
-              <MapPin size={48} color="var(--primary)" />
-              <p>Find us in Nampa, Idaho</p>
-              <a
-                href="https://www.google.com/maps/place/316+10th+Ave+S,+Nampa,+ID+83651"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="map-link"
-              >
-                Open in Google Maps
-              </a>
-            </div>
+          <div className="info-map-wrapper">
+            <iframe
+              className="info-map-iframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.123!2d-116.5634!3d43.5784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54ae5a0a6d1c3b3f%3A0x1b0c0c0c0c0c0c0c!2s316+10th+Ave+S%2C+Nampa%2C+ID+83651!5e0!3m2!1sen!2sus!4v1709000000000!5m2!1sen!2sus"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="ICP Church Location"
+            ></iframe>
+            <a
+              href="https://www.google.com/maps/place/316+10th+Ave+S,+Nampa,+ID+83651"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="map-open-link"
+            >
+              <MapPin size={16} />
+              Open in Google Maps
+            </a>
           </div>
         </div>
       </div>
@@ -128,31 +133,40 @@ const Info = () => {
           margin-top: 0.5rem;
         }
 
-        .info-map-placeholder {
-          height: 400px;
-          background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-          border-radius: 24px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          position: relative;
-        }
-
-        .map-card {
-          padding: 2.5rem;
-          border-radius: 16px;
-          text-align: center;
+        .info-map-wrapper {
           display: flex;
           flex-direction: column;
-          align-items: center;
           gap: 1rem;
+          height: 100%;
         }
 
-        .map-link {
-          color: var(--primary);
-          font-weight: 700;
-          text-decoration: underline;
+        .info-map-iframe {
+          width: 100%;
+          height: 400px;
+          border: none;
+          border-radius: 24px;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+          flex-shrink: 0;
+        }
+
+        .map-open-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          justify-content: center;
+          background: var(--primary);
+          color: white;
+          font-weight: 600;
+          font-size: 0.9rem;
+          padding: 0.75rem 1.5rem;
+          border-radius: 12px;
+          transition: var(--transition);
+        }
+
+        .map-open-link:hover {
+          background: var(--primary-light);
+          transform: translateY(-2px);
+          color: white;
         }
 
         @media (max-width: 992px) {
@@ -161,8 +175,8 @@ const Info = () => {
             gap: 3rem;
           }
           
-          .info-map-placeholder {
-            height: 300px;
+          .info-map-iframe {
+            height: 280px;
           }
         }
       `}</style>
