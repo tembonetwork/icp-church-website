@@ -1,7 +1,10 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { useLang } from '../context/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLang();
+
   return (
     <footer className="footer">
       <div className="container footer-container">
@@ -11,22 +14,20 @@ const Footer = () => {
               <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="ICP Logo" />
               <span>ICP</span>
             </div>
-            <p className="footer-desc">
-              Experience the unconditional love of God in our non-denominational community.
-            </p>
+            <p className="footer-desc">{t.footer.tagline}</p>
           </div>
 
           <div className="footer-links">
-            <h4>Quick Links</h4>
+            <h4>{t.footer.quickLinks}</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#beliefs">Our Beliefs</a></li>
-              <li><a href="#info">Location & Hours</a></li>
+              <li><a href="#">{t.nav.home}</a></li>
+              <li><a href="#beliefs">{t.nav.beliefs}</a></li>
+              <li><a href="#info">{t.nav.info}</a></li>
             </ul>
           </div>
 
           <div className="footer-contact">
-            <h4>Contact Info</h4>
+            <h4>{t.footer.contactInfo}</h4>
             <ul>
               <li><MapPin size={18} /> 316 Tenth Ave S, Nampa, ID 83651</li>
               <li><Phone size={18} /> (208) 230-3901 (Frederic)</li>
@@ -38,7 +39,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} International Church of Pentecost. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {t.footer.rights}</p>
         </div>
       </div>
 
@@ -114,27 +115,6 @@ const Footer = () => {
 
         .footer a:hover {
           color: white;
-        }
-
-        .social-grid {
-          display: flex;
-          gap: 1rem;
-        }
-
-        .social-link {
-          width: 40px;
-          height: 40px;
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: var(--transition);
-        }
-
-        .social-link:hover {
-          background: var(--primary);
-          transform: translateY(-3px);
         }
 
         .footer-bottom {

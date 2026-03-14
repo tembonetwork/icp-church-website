@@ -1,39 +1,18 @@
 import React from 'react';
 import { Book, Heart, User, Shield, Zap, Church, Clock } from 'lucide-react';
+import { useLang } from '../context/LanguageContext';
+
+const icons = [
+  <Book className="belief-icon" />,
+  <User className="belief-icon" />,
+  <Heart className="belief-icon" />,
+  <Zap className="belief-icon" />,
+  <Church className="belief-icon" />,
+  <Clock className="belief-icon" />,
+];
 
 const Beliefs = () => {
-  const beliefsData = [
-    {
-      icon: <Book className="belief-icon" />,
-      title: "The Authority of Scripture",
-      text: "We believe the Holy Bible, consisting of both the Old and New Testaments, is the divinely inspired and authoritative Word of God. Its truth forms the foundation of our faith (2 Peter 1:2; Revelation 1:3)."
-    },
-    {
-      icon: <User className="belief-icon" />,
-      title: "Jesus Christ",
-      text: "We believe that Jesus Christ is the Son of God, born of the Virgin Mary, lived a sinless life, and offered Himself as the perfect and final sacrifice for our sins."
-    },
-    {
-      icon: <Heart className="belief-icon" />,
-      title: "Salvation & New Birth",
-      text: "Salvation is found only through faith in Jesus Christ. This transformation, known as being born again, requires repentance, faith, and commitment to His Word."
-    },
-    {
-      icon: <Zap className="belief-icon" />,
-      title: "The Holy Spirit",
-      text: "We believe in the baptism of the Holy Spirit, which empowers believers for holy living and effective service, equipping the church with spiritual gifts."
-    },
-    {
-      icon: <Church className="belief-icon" />,
-      title: "The Church & Ministry",
-      text: "We believe in the active calling of ministry—discipleship, prophecy, and leadership—to gather believers and continue the ministry of Christ."
-    },
-    {
-      icon: <Clock className="belief-icon" />,
-      title: "Eternal Destiny",
-      text: "We believe the world will come to an end according to God’s sovereign plan. Those in Christ will enter eternal rest, while those who reject Him face eternal separation."
-    }
-  ];
+  const { t } = useLang();
 
   return (
     <section id="beliefs" className="section container">
@@ -45,18 +24,16 @@ const Beliefs = () => {
       </div>
 
       <div className="section-header">
-        <h2 className="section-title">Our Beliefs</h2>
-        <p className="kinyarwanda-title">Abo turi bo n’imyizerere</p>
-        <p className="beliefs-intro">
-          Our beliefs are firmly grounded in the Holy Bible, through which followers of Christ encounter the sincere and unfailing love of God.
-        </p>
+        <h2 className="section-title">{t.beliefs.heading}</h2>
+        <p className="kinyarwanda-title">{t.beliefs.subheading}</p>
+        <p className="beliefs-intro">{t.beliefs.intro}</p>
       </div>
 
       <div className="beliefs-grid">
-        {beliefsData.map((belief, index) => (
+        {t.beliefs.cards.map((belief, index) => (
           <div key={index} className="belief-card">
             <div className="icon-wrapper">
-              {belief.icon}
+              {icons[index]}
             </div>
             <h3>{belief.title}</h3>
             <p>{belief.text}</p>

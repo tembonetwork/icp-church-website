@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { useLang } from '../context/LanguageContext';
 
 const Hero = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const { t } = useLang();
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -26,19 +27,19 @@ const Hero = () => {
             <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="ICP Logo" className="hero-logo" />
             <div className="hero-logo-glow"></div>
           </a>
-          <div className="non-denominational-tag">Non-denominational Church</div>
-          <h1>International Church of Pentecost</h1>
-          <p className="subtitle">Welcome to our community. Experience the unconditional love of God.</p>
+          <div className="non-denominational-tag">{t.hero.tag}</div>
+          <h1>{t.hero.heading}</h1>
+          <p className="subtitle">{t.hero.subtitle}</p>
           <div className="hero-actions">
-            <a href="#info" className="btn btn-primary">Join Us This Sunday</a>
-            <a href="#beliefs" className="btn btn-secondary">What We Believe</a>
+            <a href="#info" className="btn btn-primary">{t.hero.cta1}</a>
+            <a href="#beliefs" className="btn btn-secondary">{t.hero.cta2}</a>
           </div>
         </div>
       </div>
 
       <style jsx>{`
         .hero {
-          height: 92vh; /* Content Peeking */
+          height: 92vh;
           display: flex;
           align-items: center;
           padding-top: 80px;
@@ -153,12 +154,6 @@ const Hero = () => {
           transform: translateY(-4px);
         }
 
-        @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-          40% { transform: translateY(-10px); }
-          60% { transform: translateY(-5px); }
-        }
-
         @media (max-width: 768px) {
           .hero-actions {
             flex-direction: column;
@@ -171,10 +166,6 @@ const Hero = () => {
           .btn {
             width: 100%;
             text-align: center;
-          }
-          
-          .hero-logo-wrapper {
-            /* Handled by clamp now */
           }
         }
       `}</style>

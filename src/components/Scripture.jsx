@@ -1,19 +1,20 @@
 import React from 'react';
+import { useLang } from '../context/LanguageContext';
 
 const Scripture = () => {
-    return (
-        <section className="scripture-section">
-            <div className="container">
-                <div className="scripture-card reveal">
-                    <div className="quote-mark">"</div>
-                    <blockquote>
-                        Jesus answered, "I am the way and the truth and the life. No one comes to the Father except through me."
-                    </blockquote>
-                    <cite>John 14:6</cite>
-                </div>
-            </div>
+  const { t } = useLang();
 
-            <style jsx>{`
+  return (
+    <section className="scripture-section">
+      <div className="container">
+        <div className="scripture-card reveal">
+          <div className="quote-mark">"</div>
+          <blockquote>{t.scripture.quote}</blockquote>
+          <cite>{t.scripture.ref}</cite>
+        </div>
+      </div>
+
+      <style jsx>{`
         .scripture-section {
           padding: 8rem 0;
           background: var(--primary);
@@ -56,8 +57,8 @@ const Scripture = () => {
           display: block;
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default Scripture;

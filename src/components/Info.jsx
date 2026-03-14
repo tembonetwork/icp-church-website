@@ -1,7 +1,10 @@
 import React from 'react';
 import { MapPin, Clock } from 'lucide-react';
+import { useLang } from '../context/LanguageContext';
 
 const Info = () => {
+  const { t } = useLang();
+
   return (
     <section id="info" className="section bg-light">
       {/* Wave Divider Bottom */}
@@ -14,10 +17,8 @@ const Info = () => {
       <div className="container info-container">
         <div className="info-grid">
           <div className="info-text">
-            <h2 className="section-title text-left">Visit Us</h2>
-            <p className="info-desc">
-              We welcome you to join our services. Please note that our current location and hours are temporary as we grow our community.
-            </p>
+            <h2 className="section-title text-left">{t.info.heading}</h2>
+            <p className="info-desc">{t.info.desc}</p>
 
             <div className="info-items">
               <div className="info-item">
@@ -25,7 +26,7 @@ const Info = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4>Location</h4>
+                  <h4>{t.info.locationLabel}</h4>
                   <p>316 Tenth Ave S<br />Nampa, ID 83651</p>
                 </div>
               </div>
@@ -35,9 +36,9 @@ const Info = () => {
                   <Clock size={24} />
                 </div>
                 <div>
-                  <h4>Service Hours</h4>
-                  <p>Sunday 1pm – 3pm</p>
-                  <span className="temporary-tag">Temporary Schedule</span>
+                  <h4>{t.info.hoursLabel}</h4>
+                  <p>{t.info.hours}</p>
+                  <span className="temporary-tag">{t.info.tempTag}</span>
                 </div>
               </div>
             </div>
@@ -59,7 +60,7 @@ const Info = () => {
               className="map-open-link"
             >
               <MapPin size={16} />
-              Open in Google Maps
+              {t.info.openMaps}
             </a>
           </div>
         </div>
@@ -174,7 +175,7 @@ const Info = () => {
             grid-template-columns: 1fr;
             gap: 3rem;
           }
-          
+
           .info-map-iframe {
             height: 280px;
           }

@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Beliefs from './components/Beliefs';
 import Info from './components/Info';
 import Scripture from './components/Scripture';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
@@ -29,18 +31,21 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <Navbar />
-      <Hero />
-      <div id="beliefs" className="reveal">
-        <Beliefs />
+    <LanguageProvider>
+      <div className="app">
+        <Navbar />
+        <Hero />
+        <div id="beliefs" className="reveal">
+          <Beliefs />
+        </div>
+        <div id="info" className="reveal">
+          <Info />
+        </div>
+        <Scripture />
+        <Contact />
+        <Footer />
       </div>
-      <div id="info" className="reveal">
-        <Info />
-      </div>
-      <Scripture />
-      <Footer />
-    </div>
+    </LanguageProvider>
   );
 }
 

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLang } from '../context/LanguageContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t, lang, toggleLang } = useLang();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,17 +24,29 @@ const Navbar = () => {
         </a>
 
         <div className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`}>
-          <a href="#" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
-          <a href="#beliefs" onClick={() => setIsMobileMenuOpen(false)}>Our Beliefs</a>
-          <a href="#info" onClick={() => setIsMobileMenuOpen(false)}>Location & Hours</a>
+          <a href="#" onClick={() => setIsMobileMenuOpen(false)}>{t.nav.home}</a>
+          <a href="#beliefs" onClick={() => setIsMobileMenuOpen(false)}>{t.nav.beliefs}</a>
+          <a href="#info" onClick={() => setIsMobileMenuOpen(false)}>{t.nav.info}</a>
+          <button className="lang-toggle" onClick={() => { toggleLang(); setIsMobileMenuOpen(false); }}>
+            <span className="lang-active">{lang === 'en' ? 'EN' : 'RW'}</span>
+            <span className="lang-sep">|</span>
+            <span className="lang-inactive">{t.nav.toggleLabel}</span>
+          </button>
         </div>
 
-        <button
-          className="mobile-menu-btn"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <button className="lang-toggle lang-toggle-desktop" onClick={toggleLang}>
+            <span className="lang-active">{lang === 'en' ? 'EN' : 'RW'}</span>
+            <span className="lang-sep">|</span>
+            <span className="lang-inactive">{t.nav.toggleLabel}</span>
+          </button>
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       <style jsx>{`
@@ -99,16 +113,42 @@ const Navbar = () => {
           color: var(--primary);
         }
 
-        .nav-cta {
-          background: var(--primary);
-          color: white !important;
-          padding: 0.6rem 1.2rem;
-          border-radius: 8px;
+        /* Language toggle */
+        .lang-toggle {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+          background: none;
+          border: 2px solid var(--primary);
+          border-radius: 50px;
+          padding: 0.3rem 0.75rem;
+          cursor: pointer;
+          font-family: 'Inter', sans-serif;
+          font-weight: 700;
+          font-size: 0.8rem;
+          transition: var(--transition);
+          white-space: nowrap;
         }
 
-        .nav-cta:hover {
-          background: var(--primary-light);
-          transform: translateY(-2px);
+        .lang-toggle:hover {
+          background: rgba(13, 103, 178, 0.06);
+        }
+
+        .lang-active {
+          color: var(--primary);
+        }
+
+        .lang-sep {
+          color: var(--border);
+        }
+
+        .lang-inactive {
+          color: var(--text-muted);
+        }
+
+        /* Show desktop toggle, hide duplicate in nav-links on desktop */
+        .lang-toggle-desktop {
+          display: flex;
         }
 
         .mobile-menu-btn {
@@ -120,6 +160,10 @@ const Navbar = () => {
         }
 
         @media (max-width: 768px) {
+          .lang-toggle-desktop {
+            display: flex;
+          }
+
           .mobile-menu-btn {
             display: block;
           }
@@ -142,6 +186,11 @@ const Navbar = () => {
 
           .nav-links.open {
             transform: translateX(0);
+          }
+
+          /* Hide the toggle that's inside nav-links (mobile menu) since we show it outside */
+          .nav-links .lang-toggle {
+            display: flex;
           }
 
           .mobile-menu-btn {
