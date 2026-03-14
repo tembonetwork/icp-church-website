@@ -520,19 +520,26 @@ Error generating stack: `+e.message+`
           color: var(--accent);
           display: block;
         }
-      `})]})},Lh=()=>{const{t:z,lang:D}=Za();return d.jsxs("section",{id:"contact",className:"section contact-section",children:[d.jsxs("div",{className:"container",children:[d.jsxs("div",{className:"section-header",children:[d.jsx("h2",{className:"section-title",children:z.contact.heading}),d.jsx("p",{className:"contact-desc",children:z.contact.desc}),D==="rw"&&d.jsx("p",{className:"kinyarwanda-title",children:z.contact.subheading})]}),d.jsxs("div",{className:"leadership-banner",children:[d.jsxs("div",{className:"leader-pill pastor-pill",children:[d.jsx("div",{className:"leader-avatar pastor-avatar",children:d.jsx(Dd,{size:20})}),d.jsxs("div",{className:"leader-text",children:[d.jsx("span",{className:"leader-role",children:z.contact.pastorRole}),d.jsx("span",{className:"leader-name",children:"Enock Niyonsenga"})]})]}),d.jsx("div",{className:"leader-divider"}),d.jsxs("div",{className:"leader-pill",children:[d.jsx("div",{className:"leader-avatar",children:d.jsx("span",{children:"FK"})}),d.jsxs("div",{className:"leader-text",children:[d.jsx("span",{className:"leader-role",children:z.contact.roles.frederic}),d.jsx("span",{className:"leader-name",children:"Frederic Karangwa"}),d.jsx("a",{href:"tel:2082303901",className:"leader-phone",children:"(208) 230-3901"})]})]}),d.jsx("div",{className:"leader-divider"}),d.jsxs("div",{className:"leader-pill",children:[d.jsx("div",{className:"leader-avatar",children:d.jsx("span",{children:"PN"})}),d.jsxs("div",{className:"leader-text",children:[d.jsx("span",{className:"leader-role",children:z.contact.roles.pierre}),d.jsx("span",{className:"leader-name",children:"Pierre Niyoyitungira"}),d.jsx("a",{href:"tel:2083500496",className:"leader-phone",children:"(208) 350-0496"})]})]})]}),d.jsxs("div",{className:"contact-actions",children:[d.jsxs("a",{href:"tel:2082303901",className:"contact-action-btn",children:[d.jsx(hf,{size:20}),d.jsxs("div",{children:[d.jsx("span",{className:"action-label",children:z.contact.callUs}),d.jsx("span",{className:"action-sub",children:"(208) 230-3901"})]})]}),d.jsxs("a",{href:"mailto:Petecostchurch@yahoo.com",className:"contact-action-btn contact-action-secondary",children:[d.jsx(Hd,{size:20}),d.jsxs("div",{children:[d.jsx("span",{className:"action-label",children:z.contact.emailHeading}),d.jsx("span",{className:"action-sub",children:"Petecostchurch@yahoo.com"})]})]})]})]}),d.jsx("style",{jsx:!0,children:`
+      `})]})},Lh=()=>{const{t:z,lang:D}=Za();return d.jsxs("section",{id:"contact",className:"section contact-section",children:[d.jsxs("div",{className:"container",children:[d.jsxs("div",{className:"section-header",children:[d.jsx("h2",{className:"section-title",children:z.contact.heading}),d.jsx("p",{className:D==="rw"?"contact-desc contact-desc-rw":"contact-desc",children:z.contact.desc})]}),d.jsxs("div",{className:"leadership-banner",children:[d.jsxs("div",{className:"leader-pill pastor-pill",children:[d.jsx("div",{className:"leader-avatar pastor-avatar",children:d.jsx(Dd,{size:20})}),d.jsxs("div",{className:"leader-text",children:[d.jsx("span",{className:"leader-role",children:z.contact.pastorRole}),d.jsx("span",{className:"leader-name",children:"Enock Niyonsenga"})]})]}),d.jsx("div",{className:"leader-divider"}),d.jsxs("div",{className:"leader-pill",children:[d.jsx("div",{className:"leader-avatar",children:d.jsx("span",{children:"FK"})}),d.jsxs("div",{className:"leader-text",children:[d.jsx("span",{className:"leader-role",children:z.contact.roles.frederic}),d.jsx("span",{className:"leader-name",children:"Frederic Karangwa"}),d.jsx("a",{href:"tel:2082303901",className:"leader-phone",children:"(208) 230-3901"})]})]}),d.jsx("div",{className:"leader-divider"}),d.jsxs("div",{className:"leader-pill",children:[d.jsx("div",{className:"leader-avatar",children:d.jsx("span",{children:"PN"})}),d.jsxs("div",{className:"leader-text",children:[d.jsx("span",{className:"leader-role",children:z.contact.roles.pierre}),d.jsx("span",{className:"leader-name",children:"Pierre Niyoyitungira"}),d.jsx("a",{href:"tel:2083500496",className:"leader-phone",children:"(208) 350-0496"})]})]})]}),d.jsxs("div",{className:"contact-actions",children:[d.jsxs("a",{href:"tel:2082303901",className:"contact-action-btn",children:[d.jsx(hf,{size:20}),d.jsxs("div",{children:[d.jsx("span",{className:"action-label",children:z.contact.callUs}),d.jsx("span",{className:"action-sub",children:"(208) 230-3901"})]})]}),d.jsxs("a",{href:"mailto:Petecostchurch@yahoo.com",className:"contact-action-btn contact-action-secondary",children:[d.jsx(Hd,{size:20}),d.jsxs("div",{children:[d.jsx("span",{className:"action-label",children:z.contact.emailHeading}),d.jsx("span",{className:"action-sub",children:"Petecostchurch@yahoo.com"})]})]})]})]}),d.jsx("style",{jsx:!0,children:`
         .contact-section {
           background: var(--background);
         }
 
         .contact-desc {
           color: var(--text-muted);
-          font-size: 1.1rem;
-          margin-top: -0.5rem;
-          margin-bottom: 2.5rem;
-          max-width: 500px;
+          font-size: 1rem;
+          margin-top: 0.25rem;
+          margin-bottom: 2rem;
+          max-width: 520px;
           margin-left: auto;
           margin-right: auto;
+        }
+
+        .contact-desc-rw {
+          font-style: italic;
+          font-weight: 600;
+          color: var(--accent);
+          font-size: 1.05rem;
         }
 
         /* ── Leadership Banner ── */
