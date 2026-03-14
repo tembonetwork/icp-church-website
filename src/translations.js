@@ -72,6 +72,7 @@ const translations = {
         // Contact
         contact: {
             heading: 'Get in Touch',
+            desc: 'Call us for prayers, questions, or anything on your heart.',
             subheading: 'Twandikire cyangwa uduhamagare',
             leadershipHeading: 'Leadership Contact',
             pastorRole: 'Pastor',
@@ -166,6 +167,7 @@ const translations = {
         // Contact
         contact: {
             heading: 'Twandikire Cyangwa Uduhamagare',
+            desc: "Duhamagare mwishyire imitima yanyu — isengesho cyangwa ikibazo cyose kigufitiye.",
             subheading: 'Twandikire cyangwa uduhamagare',
             leadershipHeading: 'Abayobozi Bacu',
             pastorRole: 'Pasitori',
