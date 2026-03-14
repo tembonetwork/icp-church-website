@@ -77,6 +77,7 @@ const translations = {
             pastorRole: 'Pastor',
             emailHeading: 'Email Us',
             emailDesc: 'Send us an email for inquiries or prayers.',
+            callUs: 'Call Us',
             roles: {
                 frederic: 'Evangelist',
                 pierre: 'Deacon',
@@ -170,6 +171,7 @@ const translations = {
             pastorRole: 'Pasitori',
             emailHeading: 'Turikangurira Imeri',
             emailDesc: "Turikangurira imeri y'ibibazo cyangwa isengesho.",
+            callUs: 'Duhamagare',
             roles: {
                 frederic: 'Umutatanisi',
                 pierre: 'Mdiyakono',

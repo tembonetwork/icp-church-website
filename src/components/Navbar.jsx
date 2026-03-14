@@ -27,19 +27,16 @@ const Navbar = () => {
           <a href="#" onClick={() => setIsMobileMenuOpen(false)}>{t.nav.home}</a>
           <a href="#beliefs" onClick={() => setIsMobileMenuOpen(false)}>{t.nav.beliefs}</a>
           <a href="#info" onClick={() => setIsMobileMenuOpen(false)}>{t.nav.info}</a>
-          <button className="lang-toggle" onClick={() => { toggleLang(); setIsMobileMenuOpen(false); }}>
-            <span className="lang-active">{lang === 'en' ? 'EN' : 'RW'}</span>
-            <span className="lang-sep">|</span>
-            <span className="lang-inactive">{t.nav.toggleLabel}</span>
-          </button>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <button className="lang-toggle lang-toggle-desktop" onClick={toggleLang}>
-            <span className="lang-active">{lang === 'en' ? 'EN' : 'RW'}</span>
-            <span className="lang-sep">|</span>
-            <span className="lang-inactive">{t.nav.toggleLabel}</span>
+        <div className="nav-right">
+          {/* Single language toggle — always visible */}
+          <button className="lang-toggle" onClick={toggleLang} aria-label="Switch language">
+            <span className={lang === 'en' ? 'lang-option active' : 'lang-option'}>English</span>
+            <span className="lang-divider">/</span>
+            <span className={lang === 'rw' ? 'lang-option active' : 'lang-option'}>Kinyarwanda</span>
           </button>
+
           <button
             className="mobile-menu-btn"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -113,42 +110,47 @@ const Navbar = () => {
           color: var(--primary);
         }
 
+        .nav-right {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
         /* Language toggle */
         .lang-toggle {
           display: flex;
           align-items: center;
-          gap: 0.3rem;
+          gap: 0.4rem;
           background: none;
-          border: 2px solid var(--primary);
+          border: 2px solid var(--border);
           border-radius: 50px;
-          padding: 0.3rem 0.75rem;
+          padding: 0.35rem 1rem;
           cursor: pointer;
           font-family: 'Inter', sans-serif;
-          font-weight: 700;
-          font-size: 0.8rem;
+          font-size: 0.78rem;
+          font-weight: 600;
           transition: var(--transition);
           white-space: nowrap;
         }
 
         .lang-toggle:hover {
-          background: rgba(13, 103, 178, 0.06);
+          border-color: var(--primary);
+          background: rgba(13, 103, 178, 0.04);
         }
 
-        .lang-active {
-          color: var(--primary);
-        }
-
-        .lang-sep {
-          color: var(--border);
-        }
-
-        .lang-inactive {
+        .lang-option {
           color: var(--text-muted);
+          transition: color 0.3s ease;
         }
 
-        /* Show desktop toggle, hide duplicate in nav-links on desktop */
-        .lang-toggle-desktop {
-          display: flex;
+        .lang-option.active {
+          color: var(--primary);
+          font-weight: 700;
+        }
+
+        .lang-divider {
+          color: var(--border);
+          font-weight: 400;
         }
 
         .mobile-menu-btn {
@@ -160,12 +162,14 @@ const Navbar = () => {
         }
 
         @media (max-width: 768px) {
-          .lang-toggle-desktop {
-            display: flex;
-          }
-
           .mobile-menu-btn {
             display: block;
+          }
+
+          /* On mobile the lang toggle shrinks to just initials */
+          .lang-toggle {
+            font-size: 0.72rem;
+            padding: 0.3rem 0.7rem;
           }
 
           .nav-links {
@@ -188,15 +192,17 @@ const Navbar = () => {
             transform: translateX(0);
           }
 
-          /* Hide the toggle that's inside nav-links (mobile menu) since we show it outside */
-          .nav-links .lang-toggle {
-            display: flex;
-          }
-
           .mobile-menu-btn {
             display: block;
             position: relative;
             z-index: 1002;
+          }
+        }
+
+        @media (max-width: 480px) {
+          /* Hide full language names on very small screens — show abbreviations */
+          .lang-toggle .lang-option::after {
+            content: '';
           }
         }
       `}</style>
