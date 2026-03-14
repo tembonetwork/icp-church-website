@@ -10,11 +10,9 @@ const Contact = () => {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">{t.contact.heading}</h2>
-          <p className="contact-desc">{t.contact.desc}</p>
-          {/* Only show Kinyarwanda subtitle when in Kinyarwanda mode */}
-          {lang === 'rw' && (
-            <p className="kinyarwanda-title">{t.contact.subheading}</p>
-          )}
+          <p className={lang === 'rw' ? 'contact-desc contact-desc-rw' : 'contact-desc'}>
+            {t.contact.desc}
+          </p>
         </div>
 
         {/* ── Leadership Banner ── */}
@@ -82,12 +80,19 @@ const Contact = () => {
 
         .contact-desc {
           color: var(--text-muted);
-          font-size: 1.1rem;
-          margin-top: -0.5rem;
-          margin-bottom: 2.5rem;
-          max-width: 500px;
+          font-size: 1rem;
+          margin-top: 0.25rem;
+          margin-bottom: 2rem;
+          max-width: 520px;
           margin-left: auto;
           margin-right: auto;
+        }
+
+        .contact-desc-rw {
+          font-style: italic;
+          font-weight: 600;
+          color: var(--accent);
+          font-size: 1.05rem;
         }
 
         /* ── Leadership Banner ── */
