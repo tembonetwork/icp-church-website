@@ -30,8 +30,8 @@ const Footer = () => {
             <h4>{t.footer.contactInfo}</h4>
             <ul>
               <li><MapPin size={18} /> 316 Tenth Ave S, Nampa, ID 83651</li>
-              <li><Phone size={18} /> (208) 230-3901 (Frederic)</li>
-              <li><Phone size={18} /> (208) 350-0496 (Pierre)</li>
+              <li><Phone size={18} /> <span>{t.contact.roles.frederic} Frederic — (208) 230-3901</span></li>
+              <li><Phone size={18} /> <span>{t.contact.roles.pierre} Pierre — (208) 350-0496</span></li>
               <li><Mail size={18} /> Petecostchurch@yahoo.com</li>
             </ul>
           </div>
