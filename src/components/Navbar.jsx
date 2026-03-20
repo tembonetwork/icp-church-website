@@ -32,9 +32,15 @@ const Navbar = () => {
         <div className="nav-right">
           {/* Single language toggle — always visible */}
           <button className="lang-toggle" onClick={toggleLang} aria-label="Switch language">
-            <span className={lang === 'en' ? 'lang-option active' : 'lang-option'}>English</span>
+            <span className={lang === 'en' ? 'lang-option active' : 'lang-option'}>
+              <span className="lang-full">English</span>
+              <span className="lang-short">EN</span>
+            </span>
             <span className="lang-divider">/</span>
-            <span className={lang === 'rw' ? 'lang-option active' : 'lang-option'}>Kinyarwanda</span>
+            <span className={lang === 'rw' ? 'lang-option active' : 'lang-option'}>
+              <span className="lang-full">Kinyarwanda</span>
+              <span className="lang-short">RW</span>
+            </span>
           </button>
 
           <button
@@ -148,6 +154,14 @@ const Navbar = () => {
           font-weight: 700;
         }
 
+        .lang-short {
+          display: none;
+        }
+
+        .lang-full {
+          display: inline;
+        }
+
         .lang-divider {
           color: var(--border);
           font-weight: 400;
@@ -162,14 +176,22 @@ const Navbar = () => {
         }
 
         @media (max-width: 768px) {
+          .lang-full {
+            display: none;
+          }
+          .lang-short {
+            display: inline;
+          }
+
           .mobile-menu-btn {
             display: block;
           }
 
           /* On mobile the lang toggle shrinks to just initials */
           .lang-toggle {
-            font-size: 0.72rem;
-            padding: 0.3rem 0.7rem;
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
+            gap: 0.3rem;
           }
 
           .nav-links {
