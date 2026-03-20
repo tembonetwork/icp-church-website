@@ -59,6 +59,7 @@ const translations = {
             hoursLabel: 'Service Hours',
             hours: 'Sunday 1pm – 3pm',
             tempTag: 'Temporary Schedule',
+            tempLocationTag: 'Temporary Location',
             openMaps: 'Open in Google Maps',
         },
 
@@ -154,6 +155,7 @@ const translations = {
             hoursLabel: 'Amasaha yo Gusenga',
             hours: 'Ku Cyumweru saa 7 – saa 9',
             tempTag: 'Gahunda Igihe',
+            tempLocationTag: 'Aho Tubarizwa Igihe',
             openMaps: 'Fungura kuri Google Maps',
         },
 
