@@ -28,7 +28,7 @@ const Info = () => {
                 <div>
                   <h4>{t.info.locationLabel}</h4>
                   <p>316 Tenth Ave S<br />Nampa, ID 83651</p>
-                  <span className="temporary-tag">{t.info.tempLocationTag}</span>
+                  {t.info.tempLocationTag && <span className="temporary-tag">{t.info.tempLocationTag}</span>}
                 </div>
               </div>
 

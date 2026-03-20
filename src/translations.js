@@ -20,7 +20,6 @@ const translations = {
         // Beliefs
         beliefs: {
             heading: 'Our Beliefs',
-            subheading: "Abo turi bo n'imyizerere",
             intro:
                 'Our beliefs are firmly grounded in the Holy Bible, through which followers of Christ encounter the sincere and unfailing love of God.',
             cards: [

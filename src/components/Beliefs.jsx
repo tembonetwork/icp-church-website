@@ -25,7 +25,7 @@ const Beliefs = () => {
 
       <div className="section-header">
         <h2 className="section-title">{t.beliefs.heading}</h2>
-        <p className="kinyarwanda-title">{t.beliefs.subheading}</p>
+        {t.beliefs.subheading && <p className="kinyarwanda-title">{t.beliefs.subheading}</p>}
         <p className="beliefs-intro">{t.beliefs.intro}</p>
       </div>
 
