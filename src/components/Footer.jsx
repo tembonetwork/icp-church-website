@@ -40,6 +40,9 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} {t.footer.rights}</p>
+          <p style={{ marginTop: '0.5rem', color: 'rgba(255, 255, 255, 0.6)' }}>
+            Site created by <a href="https://lionpointsolutions.com" style={{ color: 'white', textDecoration: 'underline', textUnderlineOffset: '4px' }}>Lionpoint Solutions LLC</a>
+          </p>
         </div>
       </div>
 
